@@ -95,3 +95,32 @@ reset.addEventListener("click", () => {
     number = 0;
     seconds.textContent = number;
 });
+
+
+
+const first = true;
+const second = false;
+
+new Promise((resolve, reject) => {
+    if (first) {
+        resolve("Первый промис выполнен");
+    } else {
+        reject("Первый промис отклонен");
+    }
+})
+.then((result) => {
+    console.log(result);
+    return new Promise((resolve, reject) => {
+        if (second) {
+            resolve("Второй промис выполнен");
+        } else {
+            reject("Второй промис отклонен");
+        }
+    });
+})
+.then((result) => {
+    console.log(result);
+})
+.catch((error) => {
+    console.log(error);
+});
