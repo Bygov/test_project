@@ -127,7 +127,7 @@ new Promise((resolve, reject) => {
 
 
 
-// Дз
+// Дз 3
 
 function delay(value, ms, shouldFail = false) {
     return new Promise((resolve, reject) => {
@@ -203,7 +203,7 @@ async function task2() {
     console.log(result);
 }
 
-// 3. Promise.all
+// 3
 
 async function task3() {
     console.log("задание 3");
@@ -259,3 +259,16 @@ async function main() {
 }
 
 main();
+
+
+// Дз 4
+
+// 3
+
+const info = async () => {
+    const response = await fetch('../data/bio.json');
+    const data = await response.json();
+    console.log(data);
+}
+
+info();
