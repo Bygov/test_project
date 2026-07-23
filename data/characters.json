@@ -1,17 +1,17 @@
 [
   {
-    "name": "",
-    "age": 0,
-    "photo": "url"
+    "name": "Axl rose",
+    "age": 64,
+    "person_photo": "https://i.pinimg.com/474x/88/b1/08/88b108d571aa2227bd5476afb4ee3745.jpg"
   },
   {
-    "name": "",
-    "age": 0,
-    "photo": "url"
+    "name": "Freddie mercury",
+    "age": 45,
+    "person_photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWNK5z2fabvBCmPz-41dopJ50ahxkMdVORJZRZCaxh6Q&s=10"
   },
   {
-    "name": "",
-    "age": 0,
-    "photo": "url"
+    "name": "Dave mustaine",
+    "age": 64,
+    "person_photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCKlWfieQesq-vD6YdwfweUZnKtNI9RHFuJ0LSlDTapQ&s=10"
   }
 ]

@@ -263,6 +263,49 @@ main();
 
 // Дз 4
 
+
+// 2
+
+const charactersList = document.querySelector(".characters-list");
+
+fetch("../data/characters.json")
+    .then((response) => response.json())
+    .then((characters) => {
+        characters.forEach((character) => {
+            const card = document.createElement("div");
+            card.classList.add("character-card");
+
+            const photo = document.createElement("div");
+            photo.classList.add("character-photo");
+
+            const img = document.createElement("img");
+            img.src = character.person_photo;
+            img.alt = character.name;
+            img.onerror = () => {
+                img.onerror = null;
+                img.src = "https://via.placeholder.com/250x250?text=No+Photo";
+            };
+
+            const name = document.createElement("h2");
+            name.textContent = character.name;
+
+            const age = document.createElement("p");
+            age.textContent = `Возраст: ${character.age}`;
+
+            photo.append(img);
+
+            card.append(photo);
+            card.append(name);
+            card.append(age);
+
+            charactersList.append(card);
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+        charactersList.textContent = "Не удалось загрузить персонажей";
+    });
+
 // 3
 
 const info = async () => {
