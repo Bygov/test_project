@@ -83,6 +83,60 @@
         </div>
     </div>
 
+    <div class="form">
+        <div class="container">
+            <h2>Заполните форму</h2>
+            <br>
+            <form id="userForm" novalidate>
+                <label>Имя</label>
+                <br>
+                <input type="text" name="name" required>
+                <br>
+
+                <label>Email</label>
+                <br>
+                <input type="email" name="email" required>
+                <br>
+
+                <label>Пароль</label>
+                <br>
+                <input type="password" name="password" required minlength="6">
+                <br>
+ 
+                <label>Возраст</label>
+                <br>
+                <input type="number" name="age" required min="1" max="120">
+                <br>
+                
+                <label>О себе</label>
+                <br>
+                <input type="text" name="bio">
+                <br>
+ 
+                <label>Пол</label>
+                <br>
+
+                <select name="gender" required>
+                    <option value="">-- выберите --</option>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                    <option value="other">Другое</option>
+                </select>
+                <br>
+
+                <label class="checker">
+                    <input type="checkbox" name="agree" id="agree">
+                    Согласен на обработку персональных данных
+                </label>
+                <br>
+
+                <button type="button" class="btn" id="sendJson" disabled>Отправить (JSON)</button>
+                <br>
+                <button type="button" class="btn" id="sendFormData" disabled>Отправить (FormData)</button> 
+            </form>
+        </div>
+    </div>
+
     <div class="footer">
         <div class="container">
             <a href="https://www.instagram.com/baked_toastt/" target="_blank">

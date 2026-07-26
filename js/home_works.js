@@ -315,3 +315,62 @@ const info = async () => {
 }
 
 info();
+
+
+
+// Дз 5
+
+
+const API_URL = 'https://jsonplaceholder.typicode.com/posts';
+
+const form = document.getElementById('userForm');
+const agreeCheckbox = document.getElementById('agree');
+const jsonBtn = document.getElementById('sendJson');
+const formDataBtn = document.getElementById('sendFormData');
+
+agreeCheckbox.addEventListener('change', () => {
+    jsonBtn.disabled = !agreeCheckbox.checked;
+    formDataBtn.disabled = !agreeCheckbox.checked;
+});
+
+function validateForm() {
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return false;
+    }
+    return true;
+}
+
+async function sendRequest(options) {
+    if (!agreeCheckbox.checked) {
+        console.log('Нужно согласие на обработку данных');
+        return;
+    }
+    if (!validateForm()) return;
+    try {
+        const response = await fetch(API_URL, options);
+        if (!response.ok) {
+            throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log('Успешно отправлено:', data);
+    } catch (err) {
+        console.log('Ошибка запроса:', err.message);
+    }
+}
+
+jsonBtn.addEventListener('click', () => {
+    const payload = Object.fromEntries(new FormData(form).entries());
+    sendRequest({
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+});
+
+formDataBtn.addEventListener('click', () => {
+    sendRequest({
+        method: 'POST',
+        body: new FormData(form)
+    });
+});
