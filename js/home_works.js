@@ -333,15 +333,15 @@ agreeCheckbox.addEventListener('change', () => {
     formDataBtn.disabled = !agreeCheckbox.checked;
 });
 
-function validateForm() {
+const validateForm = () => {
     if (!form.checkValidity()) {
         form.reportValidity();
         return false;
     }
     return true;
-}
+};
 
-async function sendRequest(options) {
+const sendRequest = async (options) => {
     if (!agreeCheckbox.checked) {
         console.log('Нужно согласие на обработку данных');
         return;
@@ -357,7 +357,7 @@ async function sendRequest(options) {
     } catch (err) {
         console.log('Ошибка запроса:', err.message);
     }
-}
+};
 
 jsonBtn.addEventListener('click', () => {
     const payload = Object.fromEntries(new FormData(form).entries());
